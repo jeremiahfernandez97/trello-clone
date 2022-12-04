@@ -1,0 +1,270 @@
+.App {
+  /* text-align: center; */
+  /* padding: 20px; */
+  padding-top: 10px;
+  padding-bottom: 50px;
+  margin: 0 auto;
+  max-width: 1200px;
+  user-select: none;
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 5px 0 15px 0;
+}
+
+.add-todo {
+  text-align: center;
+  display: block;
+}
+
+.todo-actions {
+  position: relative;
+  top: 0px;
+  float: right;
+  user-select: none;
+}
+
+.todo-action-delete:hover  {
+  color:red;
+  cursor: pointer;
+}
+
+.todo-action-update:hover  {
+  color:green;
+  cursor: pointer;
+}
+
+.todo-action-label {
+  font-size: 15px;
+  opacity:.35;
+}
+
+.submit-button {
+  float: right;
+  margin-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #c3c3c3;
+  margin: 5px;
+  padding: 7.5px;
+  margin-top: 0px;
+}
+
+.submit-button-modal {
+  float: right;
+  margin-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #c3c3c3;
+  margin: 5px;
+  padding: 7.5px;
+  margin-top: 0px;
+  background-color: white;
+}
+
+.submit-button:hover, .submit-button-modal:hover {
+  background-color: #c3c3c3;
+  /* color: white */
+}
+
+.form-control {
+  border: 1px solid #c3c3c3;
+  border-radius: 15px;
+  margin: 5px;
+  padding: 7.5px;
+  display: block;
+  width: calc(100% - 25px);
+}
+
+.todo {
+  border: 1px solid #c3c3c3;
+  border-radius: 15px;
+  margin: auto;
+  margin-bottom: 5px;
+  padding: 7.5px;
+  /* padding-bottom: 0px; */
+  display: block;
+  text-align: left;
+  max-width: 200px;
+  cursor: move;
+  overflow-wrap: break-word;
+}
+
+.todo:hover {
+  background-color: #f6f6f6;
+}
+
+/* @keyframes animate-border {
+  0% {border: 1px solid #c3c3c3}
+  25% {border: 1px solid green}
+  50% {border: 1px solid #c3c3c3}
+  75% {border: 1px solid green}
+  100% {border: 1px solid #c3c3c3}
+} */
+
+/* .notes:nth-child(1){
+  animation: animate-border 1s;
+} */
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #9d9d9d;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+.edit-modal {
+  position: relative;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  border: 1px solid #c3c3c3;
+  padding: 7.5px;
+  width: calc(100% - 25px);
+  max-width: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-open > div:not(.modal){
+  filter: blur(5px);
+  opacity: .25;
+}
+
+textarea {
+  resize: none;
+}
+
+.submit-button-add {
+  position: absolute;
+  border-radius: 10px;
+  border: 2px solid #c3c3c3;
+  margin: 0 auto;
+  padding: 7.5px;
+  left: 10px;
+  cursor: pointer;
+}
+
+.submit-button-add:hover {
+  position: absolute;
+  border-radius: 10px;
+  border: 2px solid #c3c3c3;
+  background-color: white;
+  margin: 0 auto;
+  padding: 7.5px;
+  left: 10px;
+  cursor: pointer;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  text-align: center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.card-container {
+  /* position: absolute; */
+  height: calc(100vh - 160px);
+  margin: 5px;
+}
+
+.in-queue > .todo {
+  border: rgba(255, 165, 0, .75) 2px solid;
+}
+
+.in-progress > .todo {
+  border: rgba(255, 0, 0, .75) 2px solid;
+}
+
+.completed > .todo {
+  border: rgba(0, 128, 0, .75) 2px solid;
+}
+
+.preview-delete {
+  border: 1px solid #c3c3c3;
+  border-radius: 15px;
+  margin: 5px;
+  padding: 7.5px;
+  display: block;
+  width: calc(100% - 25px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.submit-button-delete {
+  float: right;
+  margin-right: 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(255, 99, 99);
+  background-color: rgb(255, 99, 99);
+  color: white;
+  margin: 5px;
+  padding: 7.5px;
+  margin-top: 0px;
+}
+
+.submit-button-delete:hover {
+  float: right;
+  margin-right: 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(255, 46, 46);
+  background-color: rgb(255, 46, 46);
+  color: white;
+  margin: 5px;
+  padding: 7.5px;
+  margin-top: 0px;
+}
