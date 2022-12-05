@@ -8,7 +8,7 @@ import todoSlice, { deleteTodo } from "../features/todo/todoSlice";
 //   }))
 // }
 
-function DeleteTodo ({ showDelete, handleHideDelete, toDeleteTodo }) {
+function DeleteTodo ({ showDelete, handleHideDelete, toDeleteTodo }: { showDelete: any, handleHideDelete: any, toDeleteTodo: any }) {
     const dispatch = useAppDispatch();
     
     const handleClick = () => {

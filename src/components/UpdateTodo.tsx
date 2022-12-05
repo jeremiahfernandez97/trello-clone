@@ -3,11 +3,11 @@ import { useAppDispatch, useAppSelector } from "../app/hooks";
 import todoSlice, { addTodo, updateTodo } from "../features/todo/todoSlice";
 import { Form, Button, Modal } from "react-bootstrap";
 
-function UpdateTodo({ showUpdate, handleHideUpdate, update, setUpdate }) {
+function UpdateTodo({ showUpdate, handleHideUpdate, update, setUpdate }: { showUpdate: any, handleHideUpdate: any, update: any, setUpdate: any }) {
     const dispatch = useAppDispatch();
     const [title, setTitle] = useState("");
 
-    const handleChange = (event) => {
+    const handleChange = (event: any) => {
         // console.log(todo);
         setUpdate({
             ...update,

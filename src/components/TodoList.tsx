@@ -4,7 +4,7 @@ import {useState, useRef} from "react";
 import todoSlice, { deleteTodo, changeStatusInProgress, changeStatusInQueue, changeStatusCompleted } from "../features/todo/todoSlice";
 // import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
-function TodoList({ handleUpdate, handleDelete, in_queue, in_progress, completed }) {
+function TodoList({ handleUpdate, handleDelete, in_queue, in_progress, completed }: { handleUpdate: any, handleDelete: any, in_queue: any, in_progress: any, completed: any }) {
     const dispatch = useAppDispatch();
 
     // const [todos, setTodos] = useState([])
@@ -30,7 +30,7 @@ function TodoList({ handleUpdate, handleDelete, in_queue, in_progress, completed
     let previousOrder = "";
     let previousStatus = "";
 
-    const dragStarted = (e, id, order, status) => {
+    const dragStarted = (e: any, id: any, order: any, status: any) => {
       console.log("drag started " + id);
       // e.dataTransfer.setData("todoId", id);
       e.target.style.opacity = .25;
@@ -39,20 +39,20 @@ function TodoList({ handleUpdate, handleDelete, in_queue, in_progress, completed
       previousStatus = status;
     }
 
-    const dragEnded = (e, id) => {
+    const dragEnded = (e: any, id: any) => {
       console.log("drag ended " + id);
       // e.dataTransfer.setData("todoId", id);
       e.target.style.opacity = 1;
       currentDrag = id;
     }
 
-    const draggingOver = (e) => {
+    const draggingOver = (e: any) => {
       e.preventDefault();
       // e.target.style.opacity = .5;
       console.log(e.target);
     }
 
-    const dragDroppedInProgress = (e, previousOrder, previousStatus) => {
+    const dragDroppedInProgress = (e: any, previousOrder: any, previousStatus: any) => {
       console.log("drag dropped");
       // let transferredTodoId = e.dataTransfer.getData("todoId")
 
@@ -66,7 +66,7 @@ function TodoList({ handleUpdate, handleDelete, in_queue, in_progress, completed
       }
     }
 
-    const dragDroppedInQueue = (e, previousOrder, previousStatus) => {
+    const dragDroppedInQueue = (e: any, previousOrder: any, previousStatus: any) => {
       console.log("drag dropped");
       // let transferredTodoId = e.dataTransfer.getData("todoId")
       if (previousStatus !== "in queue") {
@@ -79,7 +79,7 @@ function TodoList({ handleUpdate, handleDelete, in_queue, in_progress, completed
       }
     }
 
-    const dragDroppedCompleted = (e, previousOrder, previousStatus) => {
+    const dragDroppedCompleted = (e: any, previousOrder: any, previousStatus: any) => {
       console.log("drag dropped");
       // let transferredTodoId = e.dataTransfer.getData("todoId")
       if (previousStatus !== "completed") {
@@ -111,9 +111,9 @@ function TodoList({ handleUpdate, handleDelete, in_queue, in_progress, completed
           
           <div className="column">
             <div className="title">Todo</div>
-            <div droppable="true" onDragOver={(e) => draggingOver(e)} onDrop={(e) => dragDroppedInQueue(e, previousOrder, previousStatus)} className="card-container in-queue">
+            <div data-droppable onDragOver={(e) => draggingOver(e)} onDrop={(e) => dragDroppedInQueue(e, previousOrder, previousStatus)} className="card-container in-queue">
               {
-                  in_queue.length > 0 ? in_queue.map((todo, index) => 
+                  in_queue.length > 0 ? in_queue.map((todo: any, index: any) => 
                   <div
                     className="todo"
                     draggable
@@ -137,9 +137,9 @@ function TodoList({ handleUpdate, handleDelete, in_queue, in_progress, completed
 
           <div className="column">
             <div className="title">Doing</div>
-            <div droppable="true" onDragOver={(e) => draggingOver(e)} onDrop={(e) => dragDroppedInProgress(e, previousOrder, previousStatus)} className="card-container in-progress">
+            <div data-droppable="true" onDragOver={(e) => draggingOver(e)} onDrop={(e) => dragDroppedInProgress(e, previousOrder, previousStatus)} className="card-container in-progress">
               {
-                  in_progress.length > 0 ? in_progress.map((todo, index) => 
+                  in_progress.length > 0 ? in_progress.map((todo: any, index: any) => 
                   <div
                     className="todo"
                     draggable
@@ -163,9 +163,9 @@ function TodoList({ handleUpdate, handleDelete, in_queue, in_progress, completed
 
           <div className="column">
             <div className="title">Done</div>
-            <div droppable="true" onDragOver={(e) => draggingOver(e)} onDrop={(e) => dragDroppedCompleted(e, previousOrder, previousStatus)} className="card-container completed">
+            <div data-droppable="true" onDragOver={(e) => draggingOver(e)} onDrop={(e) => dragDroppedCompleted(e, previousOrder, previousStatus)} className="card-container completed">
               {
-                  completed.length > 0 ? completed.map((todo, index) => 
+                  completed.length > 0 ? completed.map((todo: any, index: any) => 
                   <div
                     className="todo"
                     draggable

@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "../app/hooks";
 import todoSlice, { addTodo, updateTodo } from "../features/todo/todoSlice";
 import { Form, Button, Modal } from "react-bootstrap";
 
-function AddTodo({ showAdd, handleHideAdd, in_queue }) {
+function AddTodo({ showAdd, handleHideAdd, in_queue }: { showAdd: any, handleHideAdd: any, in_queue: any }) {
     const dispatch = useAppDispatch();
     
     const [title, setTitle] = useState("");
@@ -19,7 +19,7 @@ function AddTodo({ showAdd, handleHideAdd, in_queue }) {
         }
     }
     
-    const handleChange = (event) => {
+    const handleChange = (event: any) => {
         setTitle(event.target.value);
     }
     

@@ -4,8 +4,10 @@ const todoSlice = createSlice({
     name: "todos",
     initialState: [],
     reducers: {
-        addTodo: (state, PayloadAction) => {
-            const newTodo = {
+        addTodo: (state: any, PayloadAction) => {
+            let newTodo: any; 
+            
+            newTodo = {
                 id: Date.now(),
                 title: PayloadAction.payload.title,
                 status: "in queue",
@@ -39,17 +41,17 @@ const todoSlice = createSlice({
         },
 
         updateTodo: (state, PayloadAction) => {            
-            state.map((todo) =>
+            state.map((todo: any) =>
                 PayloadAction.payload.id === todo.id? todo.title = PayloadAction.payload.title : todo
             );
         },
 
         deleteTodo: (state, PayloadAction) => {
-            return state.filter((todo) => todo.id !== PayloadAction.payload.id);
+            return state.filter((todo: any) => todo.id !== PayloadAction.payload.id);
         },
 
         changeStatusInProgress: (state, PayloadAction) => {
-            state.map((todo) => {
+            state.map((todo: any) => {
                     if (PayloadAction.payload.id !== todo.id && PayloadAction.payload.previousOrder < todo.order && PayloadAction.payload.previousStatus === todo.status) {
                         todo.order = todo.order - 1
                     }
@@ -63,7 +65,7 @@ const todoSlice = createSlice({
         },
 
         changeStatusInQueue: (state, PayloadAction) => {
-            state.map((todo) => {
+            state.map((todo: any) => {
                     if (PayloadAction.payload.id !== todo.id && PayloadAction.payload.previousOrder < todo.order && PayloadAction.payload.previousStatus === todo.status) {
                         todo.order = todo.order - 1
                     }
@@ -77,7 +79,7 @@ const todoSlice = createSlice({
         },
 
         changeStatusCompleted: (state, PayloadAction) => {
-            state.map((todo) => {
+            state.map((todo: any) => {
                     if (PayloadAction.payload.id !== todo.id && PayloadAction.payload.previousOrder < todo.order && PayloadAction.payload.previousStatus === todo.status) {
                         todo.order = todo.order - 1
                     }

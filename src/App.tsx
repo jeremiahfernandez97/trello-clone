@@ -10,13 +10,19 @@ import { useAppDispatch, useAppSelector } from "./app/hooks";
 function App() {
   
   const todos = useAppSelector((state) => state.todos);
-    
-  const in_queue_unsort = todos.filter((todo) => todo.status === "in queue")
-  const in_progress_unsort = todos.filter((todo) => todo.status === "in progress")
-  const completed_unsort = todos.filter((todo) => todo.status === "completed")
 
-  const sortByKey = (array, key) => {
-    return array.sort(function(a, b) {
+  type Todo = {
+    status?: string;
+  };
+
+  // const todo: any = {};
+    
+  const in_queue_unsort = todos.filter((todo: any) => todo.status === "in queue")
+  const in_progress_unsort = todos.filter((todo: any) => todo.status === "in progress")
+  const completed_unsort = todos.filter((todo: any) => todo.status === "completed")
+
+  const sortByKey = (array: any, key: any) => {
+    return array.sort(function(a: any, b: any) {
         var x = a[key]; var y = b[key];
         return ((x < y) ? -1 : ((x > y) ? 1 : 0));
     });
@@ -51,7 +57,7 @@ function App() {
 
   const [update, setUpdate] = useState({});
 
-  const handleUpdate = (todo) => {
+  const handleUpdate = (todo: any) => {
     console.log(todo);
     setUpdate(todo);
     handleShowUpdate();
@@ -59,7 +65,7 @@ function App() {
 
   const [toDeleteTodo, setToDeleteTodo] = useState("");
 
-  const handleDelete = (todo) => {
+  const handleDelete = (todo: any) => {
     // console.log(todo);
     setToDeleteTodo(todo);
     handleShowDelete();
