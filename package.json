@@ -13,6 +13,7 @@
     "axios": "^1.2.0",
     "connect": "^3.7.0",
     "draggable-polyfill": "^1.2.4",
+    "mobile-drag-drop": "^3.0.0-rc.0",
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.1",
     "react-bootstrap": "^2.6.0",
